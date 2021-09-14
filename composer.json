@@ -1,5 +1,5 @@
 {
-    "name": "team23/module-restict-zip-codes",
+    "name": "team23/module-restrict-zip-codes",
     "description": "Handle configured postcodes/zip codes different in shipping or payment",
     "type": "magento2-module",
     "version": "1.0.0",

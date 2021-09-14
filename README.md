@@ -16,6 +16,19 @@ payment methods in the multiselect element. For this you need to enable the "Res
 
 ## Installation details
 
+Installation is done via composer
+
+### Add composer registry
+
+```shell
+composer config repositories.git.team23.de/171 '{"type": "composer", "url": "https://git.team23.de/api/v4/group/171/-/packages/composer/packages.json"}'
+```
+
+### Install package
+```shell
+composer require team23/module-restrict-zip-codes
+```
+
 Use following commands:
 
 ```shell
