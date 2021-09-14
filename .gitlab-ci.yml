@@ -2,6 +2,7 @@ stages:
   - deploy
 
 deploy_composer:
+  image: curlimages/curl:latest
   only:
     - tags
   stage: deploy
