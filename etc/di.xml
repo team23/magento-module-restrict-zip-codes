@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Dependency injection -->
+    <preference for="Team23\RestrictZipCodes\Model\Spi\Config\GetConfigurationValueInterface"
+                type="Team23\RestrictZipCodes\Model\Config"/>
+    <preference for="Team23\RestrictZipCodes\Model\Spi\Country\Postcode\GetRestrictedPostCodesInterface"
+                type="Team23\RestrictZipCodes\Model\Country\Postcode\Config"/>
+    <!-- End dependency injection -->
+
+    <!-- Handle custom configuration file -->
+    <type name="Team23\RestrictZipCodes\Model\Country\Postcode\Config\Reader">
+        <arguments>
+            <argument name="fileName" xsi:type="string">restrict_zip_codes.xml</argument>
+            <argument name="converter" xsi:type="object">Team23\RestrictZipCodes\Model\Country\Postcode\Config\Converter</argument>
+            <argument name="schemaLocator" xsi:type="object">Team23\RestrictZipCodes\Model\Country\Postcode\Config\SchemaLocator</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="restrictZipCodesDataStorage" type="Magento\Framework\Config\Data">
+        <arguments>
+            <argument name="reader" xsi:type="object">
+                Team23\RestrictZipCodes\Model\Country\Postcode\Config\Reader
+            </argument>
+            <argument name="cacheId" xsi:type="string">restrict_country_zip_codes</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Team23\RestrictZipCodes\Model\Country\Postcode\Config">
+        <arguments>
+            <argument name="dataStorage" xsi:type="object">restrictZipCodesDataStorage</argument>
+        </arguments>
+    </type>
+    <!-- End handling custom configuration file -->
+
+    <!-- Add restricted zip codes to checkout config -->
+    <type name="Magento\Checkout\Model\DefaultConfigProvider">
+        <plugin name="restrict_zip_codes"
+                type="Team23\RestrictZipCodes\Plugin\Checkout\DefaultConfigProvider"
+                disabled="false"
+                sortOrder="10"/>
+    </type>
+    <!-- End adding restricted zip codes to checkout config -->
+
+    <!-- Handle shipping rates -->
+    <type name="Magento\Quote\Model\Quote\Address">
+        <plugin name="restrict_zip_codes_rates"
+                type="Team23\RestrictZipCodes\Plugin\Quote\Address"
+                disabled="false"
+                sortOrder="10"/>
+    </type>
+    <!-- End handling shipping rates -->
+
+    <!-- Handle payment methods -->
+    <type name="Magento\Quote\Model\PaymentMethodManagement">
+        <plugin name="restrict_zip_codes_payment"
+                type="Team23\RestrictZipCodes\Plugin\Quote\PaymentMethodManagement"
+                disabled="false"
+                sortOrder="10"/>
+    </type>
+    <!-- End handling payment methods -->
+</config>

@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="restrict_zip_codes"
+                 translate="label"
+                 type="text"
+                 sortOrder="200"
+                 showInDefault="1"
+                 showInWebsite="1"
+                 showInStore="1">
+            <label>Restrict Zip Codes</label>
+            <tab>sales</tab>
+            <resource>Team23_RestrictZipCodes::config</resource>
+            <group id="general"
+                   translate="label"
+                   type="text"
+                   sortOrder="1"
+                   showInDefault="1"
+                   showInWebsite="1"
+                   showInStore="1">
+                <label>General configuration</label>
+
+                <field id="prevent"
+                       translate="label comment"
+                       type="select"
+                       sortOrder="1"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1"
+                       canRestore="1">
+                    <label>Prevent Checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If set to 'Yes', the user will forbidden to checkout if entered a restricted postcode.</comment>
+                </field>
+
+                <field id="show_notification"
+                       translate="label"
+                       type="select"
+                       sortOrder="2"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1"
+                       canRestore="1">
+                    <label>Show Notification</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="notification_msg"
+                       translate="label comment"
+                       type="textarea"
+                       sortOrder="3"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1"
+                       canRestore="1">
+                    <label>Notification Message</label>
+                    <comment>This message will be shown on postcode validation, if entered a restricted postcode.</comment>
+                    <depends>
+                        <field id="restrict_zip_codes/general/show_notification">1</field>
+                    </depends>
+                </field>
+
+                <field id="restrict_payment"
+                       translate="label"
+                       type="select"
+                       sortOrder="4"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1"
+                       canRestore="1">
+                    <label>Restrict Payment Methods</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="allowed_payment_methods"
+                       translate="label comment"
+                       type="multiselect"
+                       sortOrder="5"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1"
+                       canRestore="1">
+                    <label>Allowed Payment Methods</label>
+                    <comment>Select allowed payment methods, if entered a restricted postcode.</comment>
+                    <source_model>Team23\RestrictZipCodes\Model\Config\Source\PaymentMethods</source_model>
+                    <depends>
+                        <field id="restrict_zip_codes/general/restrict_payment">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

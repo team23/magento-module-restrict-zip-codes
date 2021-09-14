@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Team23_RestrictZipCodes:etc/restrict_zip_codes.xsd">
+    <zip countryCode="DE">
+        <codes>
+            <code id="26465" active="true" range="false">26465</code>
+            <code id="26474" active="true" range="false">26474</code>
+            <code id="26486" active="true" range="false">26486</code>
+            <code id="26548" active="true" range="false">26548</code>
+            <code id="26571" active="true" range="false">26571</code>
+            <code id="26579" active="true" range="false">26579</code>
+            <code id="26757" active="true" range="false">26757</code>
+            <code id="25845" active="true" range="true">25845-25847</code>
+            <code id="25849" active="true" range="false">25849</code>
+            <code id="25859" active="true" range="false">25859</code>
+            <code id="25863" active="true" range="false">25863</code>
+            <code id="25869" active="true" range="false">25869</code>
+            <code id="25929" active="true" range="true">25929-25933</code>
+            <code id="25938" active="true" range="true">25938-25942</code>
+            <code id="25946" active="true" range="true">25946-25949</code>
+            <code id="25952" active="true" range="true">25952-25953</code>
+            <code id="25955" active="true" range="false">25955</code>
+            <code id="25961" active="true" range="true">25961-25970</code>
+            <code id="25980" active="true" range="false">25980</code>
+            <code id="25985" active="true" range="true">25985-25986</code>
+            <code id="25988" active="true" range="true">25988-25990</code>
+            <code id="25992" active="true" range="true">25992-25994</code>
+            <code id="25996" active="true" range="true">25996-25999</code>
+            <code id="27498" active="true" range="true">27498-27499</code>
+            <code id="18565" active="true" range="false">18565</code>
+            <code id="83256" active="true" range="false">83256</code>
+        </codes>
+    </zip>
+</config>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <restrict_zip_codes>
+            <general>
+                <prevent>0</prevent>
+                <show_notification>0</show_notification>
+                <restrict_payment>0</restrict_payment>
+            </general>
+        </restrict_zip_codes>
+    </default>
+</config>

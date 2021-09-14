@@ -1,0 +1,33 @@
+{
+    "name": "team23/module-restict-zip-codes",
+    "description": "Handle configured postcodes/zip codes different in shipping or payment",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "MIT"
+    ],
+    "keywords": [
+        "Magento 2",
+        "Shipping",
+        "Payment"
+    ],
+    "require": {
+        "php": "~7.4.0||~8.0.0",
+        "magento/framework": ">=103",
+        "magento/module-checkout": ">=100.4",
+        "magento/module-config": ">=101.2",
+        "magento/module-payment": ">=100",
+        "magento/module-quote": ">=101",
+        "magento/module-store": ">=101",
+        "magento/module-ui": ">=101.2"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Team23\\RestrictZipCodes\\": ""
+        }
+    }
+}
