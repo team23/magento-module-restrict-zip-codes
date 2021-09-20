@@ -59,7 +59,7 @@ class PaymentMethods extends DataObject implements OptionSourceInterface
             }
 
             $result[$code] = [
-                'label' => $title,
+                'label' => __('%1 (Method code: %2)', $title, $code),
                 'value' => $code,
             ];
         }

@@ -9,3 +9,4 @@
 "Allowed Payment Methods","Erlaubte Zahlungsmethoden"
 "Select allowed payment methods, if entered a restricted postcode.","Wählen Sie zulässige Zahlungsmethoden aus, wenn der Nutzer eine eingeschränkte Postleitzahl eingegeben hat."
 "Restrict Zip Codes Section","PLZ einschränken Sektion"
+"%1 (Method code: %2)","%1 (Code: %2)"
