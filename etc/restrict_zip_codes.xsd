@@ -23,8 +23,6 @@
         </xs:sequence>
     </xs:complexType>
 
-
-
     <xs:complexType name="codeType">
         <xs:simpleContent>
             <xs:extension base="xs:string">
