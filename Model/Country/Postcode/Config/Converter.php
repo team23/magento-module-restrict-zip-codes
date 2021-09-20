@@ -58,10 +58,7 @@ class Converter implements ConverterInterface
 
                     if ($this->isRange($code)) {
                         $codeData = explode('-', $code->nodeValue);
-
-                        for ($i = $codeData[0]; $i <= $codeData[1]; $i++) {
-                            $result[$groupName][] = (string)$i;
-                        }
+                        $this->handleRange($result, $codeData, $groupName);
                     } else {
                         $result[$groupName][] = $code->nodeValue;
                     }
@@ -70,6 +67,31 @@ class Converter implements ConverterInterface
         }
 
         return $result;
+    }
+
+    /**
+     * Handle range, they may include whitespace
+     *
+     * @param array $result
+     * @param array $data
+     * @param string $index
+     */
+    private function handleRange(array &$result, array $data, string $index)
+    {
+        $rangeStart = $data[0];
+        $rangeEnd = $data[1];
+        $whiteSpacePosition = strrpos($rangeStart, ' ');
+
+        if ($whiteSpacePosition !== false) {
+            $rangeStart = str_replace(' ', '', $rangeStart);
+            $rangeEnd = str_replace(' ', '', $rangeEnd);
+        }
+
+        for ($i = $rangeStart; $i <= $rangeEnd; $i++) {
+            $result[$index][] = ($whiteSpacePosition === false)
+                ? (string)$i
+                : (string)substr_replace($i, ' ', $whiteSpacePosition, 0);
+        }
     }
 
     /**
