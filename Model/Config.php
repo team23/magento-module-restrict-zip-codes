@@ -38,7 +38,7 @@ class Config implements GetConfigurationValueInterface
      */
     public function isPreventCheckout($scopeCode): bool
     {
-        return $this->scopeConfig->isSetFlag(
+        return (bool)$this->scopeConfig->isSetFlag(
             self::XML_PATH_PREVENT_CHECKOUT,
             ScopeInterface::SCOPE_STORES,
             $scopeCode
@@ -50,7 +50,7 @@ class Config implements GetConfigurationValueInterface
      */
     public function isShowNotification($scopeCode): bool
     {
-        return $this->scopeConfig->isSetFlag(
+        return (bool)$this->scopeConfig->isSetFlag(
             self::XML_PATH_SHOW_NOTIFICATION,
             ScopeInterface::SCOPE_STORES,
             $scopeCode
@@ -62,7 +62,7 @@ class Config implements GetConfigurationValueInterface
      */
     public function getNotificationMessage($scopeCode): string
     {
-        return $this->scopeConfig->getValue(
+        return (string)$this->scopeConfig->getValue(
             self::XML_PATH_NOTIFICATION_MSG,
             ScopeInterface::SCOPE_STORES,
             $scopeCode
@@ -74,7 +74,7 @@ class Config implements GetConfigurationValueInterface
      */
     public function isRestrictPayment($scopeCode): bool
     {
-        return $this->scopeConfig->isSetFlag(
+        return (bool)$this->scopeConfig->isSetFlag(
             self::XML_PATH_RESTRICT_PAYMENT,
             ScopeInterface::SCOPE_STORES,
             $scopeCode
@@ -86,7 +86,7 @@ class Config implements GetConfigurationValueInterface
      */
     public function getAllowedPaymentMethods($scopeCode): array
     {
-        $allowedMethods = $this->scopeConfig->getValue(
+        $allowedMethods = (string)$this->scopeConfig->getValue(
             self::XML_PATH_ALLOWED_PAYMENT_METHODS,
             ScopeInterface::SCOPE_STORES,
             $scopeCode
